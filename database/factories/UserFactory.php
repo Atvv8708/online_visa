@@ -23,8 +23,46 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $nationalities = [
+            'American', 'British', 'Canadian', 'French', 'German',
+            'Japanese', 'Indian', 'Brazilian', 'Australian', 'Chinese'
+        ];
+
+        $nationalitiesWithLanguages = [
+            'English',
+            'American',
+            'French',
+            'German',
+            'Japanese',
+            'Hindi/English',
+            'Portuguese',
+            'English',
+            'Mandarin',
+        ];
+
+        $cities = [
+            'Washington, D.C.',
+            'London',
+            'Ottawa',
+            'Paris',
+            'Berlin',
+            'Tokyo',
+            'New Delhi',
+            'Brasília',
+            'Canberra',
+            'Beijing',
+        ];
+
+
         return [
             'name' => fake()->name(),
+            'phone' => fake()->phoneNumber(),
+            'passport' => fake()->ean8(),
+            'nationality' => fake()->randomElement($nationalities),
+            'gender' => random_int(0, 1),
+            'birth_date' => fake()->date($format = 'Y-m-d', $max = '2007-08-21'),
+            'language' => fake()->randomElement($nationalitiesWithLanguages),
+            'city' => fake()->randomElement($cities),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
