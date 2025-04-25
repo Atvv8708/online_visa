@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('phone');
             $table->string('passport');
             $table->string('nationality');
-            $table->boolean('gender');
+            $table->enum('gender',['male', 'female', 'other']);
             $table->date('birth_date');
+            $table->foreignId('country_id')->constrained();
             $table->string('language');
             $table->string('city');
             $table->string('image')->nullable();

@@ -7,6 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
-    /** @use HasFactory<\Database\Factories\AnswerFactory> */
+
     use HasFactory;
+
+    protected $fillable = ['visa_id', 'question_id', 'answer'];
+
+    public function visa()
+    {
+        return $this->belongsTo(Visa::class);
+    }
+
+    public function question()
+    {
+        return $this->belongsTo(Question::class);
+    }
 }

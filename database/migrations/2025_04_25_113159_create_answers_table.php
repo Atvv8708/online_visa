@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->string('answer');
             $table->foreignId('visa_id')->index()->constrained()->cascadeOnDelete();
             $table->foreignId('question_id')->index()->constrained()->cascadeOnDelete();
+            $table->text('answer');
             $table->timestamps();
         });
     }

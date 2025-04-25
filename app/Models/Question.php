@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    /** @use HasFactory<\Database\Factories\QuestionFactory> */
+
     use HasFactory;
+
+    protected $fillable = ['question'];
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }
