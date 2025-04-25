@@ -16,7 +16,7 @@ class QuestionFactory extends Factory
             "Why is " . fake()->word . " important?",
         ];
         return [
-            'name' => fake()->randomElement($fakeQuestions)
+            'question' => fake()->randomElement($fakeQuestions)
         ];
     }
 }

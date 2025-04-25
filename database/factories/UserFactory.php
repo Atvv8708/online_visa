@@ -1,26 +1,15 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
- */
 class UserFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
     protected static ?string $password;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         $nationalities = [
@@ -53,13 +42,14 @@ class UserFactory extends Factory
             'Beijing',
         ];
 
-
+        $country = Country::inRandomOrder()->first();
         return [
             'name' => fake()->name(),
             'phone' => fake()->phoneNumber(),
             'passport' => fake()->ean8(),
             'nationality' => fake()->randomElement($nationalities),
-            'gender' => random_int(0, 1),
+            'country_id' => $country->id,
+            'gender' => true,
             'birth_date' => fake()->date($format = 'Y-m-d', $max = '2007-08-21'),
             'language' => fake()->randomElement($nationalitiesWithLanguages),
             'city' => fake()->randomElement($cities),

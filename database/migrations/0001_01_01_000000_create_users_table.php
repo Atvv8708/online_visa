@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('nationality');
             $table->enum('gender',['male', 'female', 'other']);
             $table->date('birth_date');
-            $table->foreignId('country_id')->constrained();
             $table->string('language');
             $table->string('city');
             $table->string('image')->nullable();

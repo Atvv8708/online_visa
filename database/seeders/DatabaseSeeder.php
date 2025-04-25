@@ -14,9 +14,6 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
 
@@ -33,14 +30,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Visa::factory(100)->create();
-//
+
 
         Question::factory(100)->create();
-//
+
         Answer::factory(100)->create();
-
-
-
-
     }
 }
