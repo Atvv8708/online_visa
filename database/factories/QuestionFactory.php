@@ -4,20 +4,19 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Question>
- */
+
 class QuestionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
+        $fakeQuestions = [
+            "What is your favorite " . fake()->word . "?",
+            "How often do you " . fake()->word . "?",
+            "Do you prefer " . fake()->word . " or " . fake()->word . "?",
+            "Why is " . fake()->word . " important?",
+        ];
         return [
-            //
+            'name' => fake()->randomElement($fakeQuestions)
         ];
     }
 }
